@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台北打擊樂團 | TPE Young Artist 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #cfa159;
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --text-light: #ffffff;
+            --text-gray: #b3b3b3;
+            --font-serif: 'Noto Serif TC', serif;
+            --font-sans: 'Roboto', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: var(--bg-dark);
+            font-weight: 700;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover { background-color: #e0b46a; }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        /* Navigation */
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: rgba(18, 18, 18, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        #navbar .logo img { height: 40px; }
+        #navbar ul { display: flex; align-items: center; }
+        #navbar ul li { margin-left: 2rem; }
+        #navbar ul li a:hover { color: var(--primary-color); }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero-shot-2.webp') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+        #hero h1 { font-family: var(--font-serif); font-size: 3.5rem; margin-bottom: 1rem; }
+        #hero h2 { font-size: 1.5rem; font-weight: 400; margin-bottom: 2rem; color: var(--text-gray); }
+
+        /* Vision Section */
+        #vision { padding: 6rem 0; }
+        .vision-content { display: flex; align-items: center; gap: 4rem; }
+        .vision-text { flex: 1; }
+        .vision-text h3 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 1.5rem; color: var(--primary-color); }
+        .vision-text p { font-size: 1.1rem; color: var(--text-gray); margin-bottom: 1rem; }
+        .vision-image { flex: 1; }
+        .vision-image img { width: 100%; border-radius: 8px; }
+
+        /* Faculty Section */
+        #curriculum { padding: 6rem 0; background-color: #181818; }
+        .curriculum-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .curriculum-card { background-color: var(--bg-card); border-radius: 8px; overflow: hidden; }
+        .curriculum-card img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            object-position: center 35%; 
+        }
+        .card-content { padding: 2rem; }
+
+/* :nth-child(3) 表示選取網格中的「第三個」卡片 */
+.curriculum-grid .curriculum-card:nth-child(3) img {
+    /* 將垂直對齊點從原本的 15% 改為 30% */
+    /* 這會讓原本的照片在框框內「往下滑」，增加頭頂留白 */
+    object-position: center 0%; 
+}
+        .card-content h3 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--primary-color); }
+        .card-content h4 { font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-light); }
+        .card-content p { color: var(--text-gray); font-size: 0.95rem; }
+
+        .rehearsal-image { margin-top: 4rem; }
+        .rehearsal-image img { width: 100%; border-radius: 8px; max-height: 450px; object-fit: cover; }
+
+        /* Highlights */
+        #highlights { padding: 6rem 0; }
+        .highlight-content { display: flex; align-items: center; gap: 4rem; flex-direction: row-reverse; }
+        .highlight-text { flex: 1; }
+        .highlight-text h3 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 1.5rem; color: var(--primary-color); }
+        .highlight-text ul li { margin-bottom: 1.2rem; display: flex; color: var(--text-gray); }
+        .highlight-text ul li::before { content: '★'; color: var(--primary-color); margin-right: 0.8rem; }
+        .highlight-image { flex: 1; }
+        .highlight-image img { width: 100%; border-radius: 8px; }
+
+        /* Fee Section 拿掉圖片並置中 */
+        #key-info { padding: 6rem 0; background-color: #cfa159; color: #121212; }
+        .info-container { display: flex; justify-content: center; }
+        .info-details { flex: 1; max-width: 800px; }
+        .info-details h3 { font-family: var(--font-serif); margin-bottom: 1.5rem; font-size: 1.8rem; border-bottom: 2px solid rgba(0,0,0,0.1); padding-bottom: 0.5rem; text-align: center; }
+        .info-details p { margin-bottom: 0.8rem; font-size: 1.1rem; }
+        
+        .price-box { margin: 2rem 0; padding: 2rem; background: rgba(255,255,255,0.25); border-radius: 8px; }
+        .price-item { display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 1.3rem; font-weight: 700; }
+        .price-desc { font-size: 1rem; font-weight: 400; margin-bottom: 1rem; display: block; opacity: 0.8; }
+        
+        .includes-list { margin-top: 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px; }
+        .includes-list li { margin-bottom: 0.5rem; position: relative; padding-left: 1.5rem; font-weight: 500; }
+        .includes-list li::before { content: '✔'; position: absolute; left: 0; }
+
+        /* Steps Section */
+        #application { padding: 6rem 0; text-align: center; }
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
+        .step-card { background-color: var(--bg-card); padding: 3rem 2rem; border-radius: 8px; }
+        .step-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .step-card h3 { color: var(--primary-color); margin-bottom: 1rem; font-family: var(--font-serif); }
+        .step-date { font-weight: 700; color: #fff; margin-top: 10px; display: block; }
+
+        /* Footer Logo 修正 */
+        #footer { background-color: #0a0a0a; padding: 3rem 0; text-align: center; border-top: 1px solid #222; }
+        #footer img.footer-logo { 
+            width: 200px; 
+            height: auto; 
+            margin-bottom: 1.2rem; 
+            opacity: 0.8; 
+        }
+        .copyright { color: #555; font-size: 0.85rem; }
+
+        /* --- 加強版行動裝置優化 --- */
+@media (max-width: 768px) {
+    /* 1. 導覽列：讓 Logo 居中，隱藏文字選單以保持簡潔，保留報名按鈕 */
+    #navbar {
+        padding: 0.8rem 1rem;
+        flex-direction: column; /* 讓內容上下排 */
+    }
+    #navbar .logo img { height: 30px; margin-bottom: 5px; }
+    #navbar ul {
+        width: 100%;
+        justify-content: center;
+        gap: 10px;
+    }
+    #navbar ul li { margin-left: 0.5rem; margin-right: 0.5rem; }
+    #navbar ul li:not(:last-child) { display: none; } /* 手機版隱藏其他選單，只留報名按鈕 */
+
+    /* 2. 主視覺：縮小字體防止斷句太難看 */
+    #hero h1 { font-size: 2.2rem; padding: 0 10px; line-height: 1.3; }
+    #hero h2 { font-size: 1.1rem; padding: 0 15px; }
+
+    /* 3. 調整區塊間距，避免手機上滑不到頭 */
+    #vision, #curriculum, #highlights, #key-info, #application {
+        padding: 4rem 0; 
+    }
+    .section-title { font-size: 1.8rem; margin-bottom: 2rem; }
+
+    /* 4. 內容堆疊：讓圖片在文字下方，並縮小間距 */
+    .vision-content, .highlight-content {
+        flex-direction: column !important; /* 強制垂直堆疊 */
+        gap: 2rem;
+        text-align: left; /* 文字維持靠左閱讀較順手 */
+    }
+
+    /* 5. 師資卡片：稍微降低高度避免手機版太長 */
+    .curriculum-card img { height: 300px; }
+
+    /* 6. 計畫詳情：讓費用與內容垂直對齊 */
+    .price-box { padding: 1rem; }
+    .price-item { font-size: 1.1rem; }
+    .includes-list { grid-template-columns: 1fr; } /* 福利清單改為單欄 */
+
+    /* 7. 徵選流程：縮小卡片間距 */
+    .steps-grid { gap: 1rem; }
+    .step-card { padding: 2rem 1rem; }
+
+    /* 8. 頁尾：Logo 再縮小一點 */
+    #footer img.footer-logo { width: 80px; }
+}
+        }
+/* --- 浮動按鈕樣式 --- */
+.mobile-fab {
+    display: none; /* 預設隱藏（電腦版不顯示） */
+}
+
+@media (max-width: 768px) {
+    .mobile-fab {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        bottom: 30px;
+        right: 20px;
+        width: auto;
+        padding: 0 25px;
+        height: 50px;
+        background-color: var(--primary-color);
+        color: #121212;
+        border-radius: 50px; /* 膠囊形狀 */
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        z-index: 999;
+        font-size: 1rem;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        animation: slideIn 0.5s ease-out; /* 出場動畫 */
+    }
+
+    /* 輕微的呼吸燈效果，吸引注意力 */
+    @keyframes slideIn {
+        from { transform: translateX(100px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+}
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <a href="#" class="logo"><img src="logo-horizontal.webp" alt="TPE Logo"></a>
+        <ul>
+            <li><a href="#vision">核心理念</a></li>
+            <li><a href="#curriculum">師資陣容</a></li>
+            <li><a href="#highlights">計畫亮點</a></li>
+            <li><a href="https://forms.gle/hR6aG4FRiDZFm5UC6" target="_blank" class="btn">立即報名</a></li>
+        </ul>
+    </nav>
+
+    <section id="hero">
+        <div class="container">
+            <h1>尋找第 41 年的聲音</h1>
+            <h2>TPE Young Artist 2026 ── 青年演奏家計畫</h2>
+            <a href="#vision" class="btn">了解計畫</a>
+        </div>
+    </section>
+
+    <section id="vision">
+        <div class="container">
+            <h2 class="section-title">核心理念</h2>
+            <div class="vision-content">
+                <div class="vision-text">
+                    <h3>傳承，不是複製過去，<br>而是創造未來的起點。</h3>
+                    <p>台北打擊樂團走過 40 年，我們尋找有想法、有野心，渴望發出獨特聲音的你。我們不教你成為第二個誰，我們陪伴你，成為第一個你。</p>
+                </div>
+                <div class="vision-image"><img src="image_0.webp" alt="Vision"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="curriculum">
+        <div class="container">
+            <h2 class="section-title">師資陣容</h2>
+            <div class="curriculum-grid">
+                <div class="curriculum-card">
+                    <img src="faculty-1.webp" alt="王惟">
+                    <div class="card-content">
+                        <h3>技巧工坊</h3>
+                        <h4>導師：王惟</h4>
+                        <p>深入打擊樂的物理性與音樂性核心，建立堅不可摧的技術基石，並尋求個人風格的突破點。</p>
+                    </div>
+                </div>
+                <div class="curriculum-card">
+                    <img src="faculty-2.webp" alt="黃泱宏">
+                    <div class="card-content">
+                        <h3>合奏實驗室</h3>
+                        <h4>導師：黃泱宏</h4>
+                        <p>學習如何在合奏中「呼吸」，在展現自我的同時成就團隊，探索聲音在空間中的化學反應。</p>
+                    </div>
+                </div>
+                <div class="curriculum-card">
+                    <img src="faculty-3.webp" alt="陳振馨">
+                    <div class="card-content">
+                        <h3>總監指導課</h3>
+                        <h4>導師：陳振馨</h4>
+                        <p>解讀作品的深層意涵，培養身為一位「藝術家」所需的詮釋能力與舞台思考。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="rehearsal-image"><img src="venue-1.webp" alt="Venue"></div>
+        </div>
+    </section>
+
+    <section id="highlights">
+        <div class="container">
+            <h2 class="section-title">計畫亮點</h2>
+            <div class="highlight-content">
+                <div class="highlight-text">
+                    <ul>
+                        <li><strong>實戰舞台：</strong> 安排參與社區音樂會演出。</li>
+                        <li><strong>頂尖見習：</strong> 有機會進入台北表演藝術中心「藍盒子」劇場見習年度製作。</li>
+                        <li><strong>職涯導航：</strong> 與 TPE 團員深度交流，獲得第一手職涯建議。</li>
+                    </ul>
+                </div>
+                <div class="highlight-image"><img src="image_1.webp" alt="Highlights"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="key-info">
+        <div class="container">
+            <div class="info-container">
+                <div class="info-details">
+                    <h3>TPE 40週年特別企劃</h3>
+                    <p style="text-align: center; margin-bottom: 2rem;">本計畫集結三位旅歐師資，提供小班制高強度培訓，確保每位學員都能獲得充分指導。</p>
+                    
+                    <div class="price-box">
+                        <div class="price-item">
+                            <span>一般報名</span>
+                            <span>NT$ 18,000</span>
+                        </div>
+                        <div class="price-item">
+                            <span>推薦優惠</span>
+                            <span>NT$ 15,000</span>
+                        </div>
+                        <span class="price-desc">(經 TPE 團員或打擊樂專業教師推薦者)</span>
+                    </div>
+
+                    <p><strong>費用包含：</strong></p>
+                    <ul class="includes-list">
+                        <li>10 週專業課程 (共 40 小時)</li>
+                        <li>教材與樂譜</li>
+                        <li>TPE 年度爵士音樂會票券 × 2 張</li>
+                        <li>社區音樂會演出機會</li>
+                        <li>專業場館後台見習機會</li>
+                    </ul>
+                    
+                    <div style="margin-top: 3rem; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 1.5rem;">
+                        <p><strong>期間：</strong> 2026/03/07 - 05/17 (每週六、日晚上7點 - 9點)</p>
+                        <p><strong>地點：</strong> 台北打擊樂團(台北市信義區永吉路201號B1)</p>
+                        <p><strong>對象：</strong> 15-23 歲具備打擊樂演奏能力者</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="application">
+        <div class="container">
+            <h2 class="section-title">徵選流程</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-icon">📝</div>
+                    <h3>Step 1 線上報名</h3>
+                    <p>填寫報名表單並上傳簡歷與影片連結</p>
+                    <span class="step-date">截止：2026/02/27 (五)</span>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">🥁</div>
+                    <h3>Step 2 現場徵選</h3>
+                    <p>通過初審者參加演奏徵選與面談</p>
+                    <span class="step-date">日期：2026/03/01 (日)</span>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">✉️</div>
+                    <h3>Step 3 錄取通知</h3>
+                    <p>以電子郵件個別通知最終名單</p>
+                    <span class="step-date">日期：2026/03/04 (三) 前</span>
+                </div>
+            </div>
+            <a href="https://forms.gle/hR6aG4FRiDZFm5UC6" target="_blank" class="btn" style="padding: 18px 60px; font-size: 1.2rem;">立即前往報名表單</a>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="container">
+            <img src="logo-horizontal.webp" alt="TPE Logo" class="footer-logo">
+            <p class="copyright">© 2026 Taipei Percussion Group. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+<a href="https://forms.gle/hR6aG4FRiDZFm5UC6" target="_blank" class="mobile-fab">
+    <span>立即報名</span>
+</a>
+</html>
