@@ -3,388 +3,817 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>台北打擊樂團 | TPE Young Artist 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="preload" as="image" href="hero-shot-2.webp">
+    <title>TPE Young Artist 2026 - 青年演奏家培力計畫</title>
     <style>
-        :root {
-            --primary-color: #cfa159;
-            --bg-dark: #121212;
-            --bg-card: #1e1e1e;
-            --text-light: #ffffff;
-            --text-gray: #b3b3b3;
-            --font-serif: 'Noto Serif TC', serif;
-            --font-sans: 'Roboto', sans-serif;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: var(--font-sans); background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; }
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
-        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--primary-color);
-            color: var(--bg-dark);
-            font-weight: 700;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-        .btn:hover { background-color: #e0b46a; }
-
-        .section-title {
-            font-family: var(--font-serif);
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--primary-color);
-        }
-
-        /* Navigation */
-        #navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-            background-color: rgba(18, 18, 18, 0.95);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-        }
-        #navbar .logo img { height: 40px; }
-        #navbar ul { display: flex; align-items: center; }
-        #navbar ul li { margin-left: 2rem; }
-        #navbar ul li a:hover { color: var(--primary-color); }
-
-        /* 漢堡選單按鈕 (預設隱藏) */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background-color: var(--primary-color);
-            transition: 0.3s;
+        body {
+            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.8;
+            color: #1a1a1a;
+            background: #ffffff;
         }
 
         /* Hero Section */
-        #hero {
+        .hero {
+            position: relative;
             height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero-shot-2.webp') no-repeat center center/cover;
             display: flex;
             align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero-shot-2.webp');
+            background-size: cover;
+            background-position: center;
+            color: white;
             text-align: center;
-            padding-top: 80px;
         }
-        #hero h1 { font-family: var(--font-serif); font-size: 3.5rem; margin-bottom: 1rem; }
-        #hero h2 { font-size: 1.5rem; font-weight: 400; margin-bottom: 2rem; color: var(--text-gray); }
 
-        /* Vision Section */
-        #vision { padding: 6rem 0; }
-        .vision-content { display: flex; align-items: center; gap: 4rem; }
-        .vision-text { flex: 1; }
-        .vision-text h3 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 1.5rem; color: var(--primary-color); }
-        .vision-text p { font-size: 1.1rem; color: var(--text-gray); margin-bottom: 1rem; }
-        .vision-image { flex: 1; }
-        .vision-image img { width: 100%; border-radius: 8px; }
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            line-height: 2;
+            font-weight: 300;
+            margin-bottom: 3rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: white;
+            color: #1a1a1a;
+        }
+
+        /* Logo */
+        .logo {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            width: 200px;
+            z-index: 100;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .hamburger:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: white;
+            transition: all 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        /* Navigation Menu */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: rgba(26, 26, 26, 0.98);
+            z-index: 999;
+            padding: 6rem 2rem 2rem;
+            transition: right 0.3s;
+        }
+
+        .nav-menu.active {
+            right: 0;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-bottom: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            letter-spacing: 0.05em;
+            transition: opacity 0.3s;
+        }
+
+        .nav-menu a:hover {
+            opacity: 0.7;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            line-height: 2.2;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        /* Manifesto Section */
+        .manifesto {
+            background: linear-gradient(rgba(248, 248, 248, 0.95), rgba(248, 248, 248, 0.95)), url('image_0.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .manifesto-text {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 2.2;
+            color: #333;
+        }
+
+        .manifesto-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        /* Program Section */
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .program-item {
+            padding: 2rem;
+            background: white;
+            border-left: 3px solid #1a1a1a;
+        }
+
+        .program-item h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .program-time {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .program-desc {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
 
         /* Faculty Section */
-        #curriculum { padding: 6rem 0; background-color: #181818; }
-        .curriculum-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .curriculum-card { background-color: var(--bg-card); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
-        .curriculum-card img {
-            width: 100%;
-            height: 380px;
-            object-fit: cover;
-            object-position: center 35%; 
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
-        /* 總監照片單獨微調 */
-        .curriculum-grid .curriculum-card:nth-child(3) img {
-            object-position: center 0%; 
+        .faculty-card {
+            text-align: center;
         }
 
-        .card-content { padding: 2rem; flex-grow: 1; }
-        .card-content h3 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--primary-color); }
-        .card-content h4 { font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-light); }
-        .card-content p { color: var(--text-gray); font-size: 0.95rem; }
+        .faculty-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+}
 
-        .rehearsal-image { margin-top: 4rem; }
-        .rehearsal-image img { width: 100%; border-radius: 8px; max-height: 450px; object-fit: cover; }
+/* 個別調整照片位置 */
+.faculty-card:nth-child(1) .faculty-img {
+    object-position: center 0%;  /* 陳振馨老師 - 從頂部開始 */
+}
 
-        /* Highlights */
-        #highlights { padding: 6rem 0; }
-        .highlight-content { display: flex; align-items: center; gap: 4rem; flex-direction: row-reverse; }
-        .highlight-text { flex: 1; }
-        .highlight-text h3 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 1.5rem; color: var(--primary-color); }
-        .highlight-text ul li { margin-bottom: 1.2rem; display: flex; color: var(--text-gray); }
-        .highlight-text ul li::before { content: '★'; color: var(--primary-color); margin-right: 0.8rem; }
-        .highlight-image { flex: 1; }
-        .highlight-image img { width: 100%; border-radius: 8px; }
+.faculty-card:nth-child(2) .faculty-img,
+.faculty-card:nth-child(3) .faculty-img {
+    object-position: center 35%;  /* 黃泱宏、王惟 - 35% */
+}
+        }
 
-        /* Fee Section */
-        #key-info { padding: 6rem 0; background-color: #cfa159; color: #121212; }
-        .info-container { display: flex; justify-content: center; }
-        .info-details { flex: 1; max-width: 800px; }
-        .info-details h3 { font-family: var(--font-serif); margin-bottom: 1.5rem; font-size: 1.8rem; border-bottom: 2px solid rgba(0,0,0,0.1); padding-bottom: 0.5rem; text-align: center; }
-        
-        .price-box { margin: 2rem 0; padding: 2rem; background: rgba(255,255,255,0.25); border-radius: 8px; }
-        .price-item { display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 1.3rem; font-weight: 700; }
-        .price-desc { font-size: 1rem; font-weight: 400; margin-bottom: 1rem; display: block; opacity: 0.8; }
-        
-        .includes-list { margin-top: 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px; }
-        .includes-list li { margin-bottom: 0.5rem; position: relative; padding-left: 1.5rem; font-weight: 500; }
-        .includes-list li::before { content: '✔'; position: absolute; left: 0; }
+        .faculty-name {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
 
-        /* Steps Section */
-        #application { padding: 6rem 0; text-align: center; }
-        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
-        .step-card { background-color: var(--bg-card); padding: 3rem 2rem; border-radius: 8px; }
-        .step-icon { font-size: 3rem; margin-bottom: 1rem; }
-        .step-card h3 { color: var(--primary-color); margin-bottom: 1rem; font-family: var(--font-serif); }
-        .step-date { font-weight: 700; color: #fff; margin-top: 10px; display: block; }
+        .faculty-title {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .faculty-bio {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .benefits .section-title {
+            color: white;
+        }
+
+        .benefits-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .benefit-item {
+            margin-bottom: 2.5rem;
+            padding-left: 2rem;
+            border-left: 3px solid white;
+        }
+
+        .benefit-item h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .benefit-item p {
+            font-size: 1rem;
+            line-height: 1.9;
+            opacity: 0.9;
+        }
+
+        /* Info Section */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .info-item {
+            padding: 2rem;
+            background: #f8f8f8;
+        }
+
+        .info-item h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .info-item p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: #f8f8f8;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 3rem auto 0;
+        }
+
+        .pricing-card {
+            padding: 3rem 2rem;
+            background: white;
+            text-align: center;
+            border: 2px solid #e0e0e0;
+        }
+
+        .pricing-card.featured {
+            border-color: #1a1a1a;
+            position: relative;
+        }
+
+        .pricing-label {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .pricing-amount {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-note {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-includes {
+            text-align: left;
+            font-size: 0.9rem;
+            line-height: 1.9;
+            color: #333;
+        }
+
+        /* Application Section */
+        .application {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .application .section-title {
+            color: white;
+        }
+
+        .application-steps {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .step {
+            margin-bottom: 3rem;
+        }
+
+        .step h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .step p {
+            font-size: 1rem;
+            line-height: 1.9;
+            opacity: 0.9;
+        }
+
+        .step ul {
+            list-style: none;
+            padding-left: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .step li {
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .step li:before {
+            content: "・";
+            margin-right: 0.5rem;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            text-align: center;
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .final-cta h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+        }
+
+        .final-cta .cta-button {
+            background: #1a1a1a;
+            color: white;
+            border: 2px solid #1a1a1a;
+            padding: 1.2rem 4rem;
+            font-size: 1.2rem;
+        }
+
+        .final-cta .cta-button:hover {
+            background: transparent;
+            color: #1a1a1a;
+        }
 
         /* Footer */
-        #footer { background-color: #0a0a0a; padding: 3rem 0; text-align: center; border-top: 1px solid #222; }
-        #footer img.footer-logo { width: 120px; height: auto; margin-bottom: 1rem; opacity: 0.8; }
-        .copyright { color: #555; font-size: 0.85rem; }
+        footer {
+            padding: 3rem 2rem;
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+        }
 
-        /* 手機版浮動按鈕 */
-        .mobile-fab { display: none; }
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-        /* --- 行動裝置優化 --- */
+        .footer-logo {
+            width: 150px;
+            margin-bottom: 2rem;
+        }
+
+        .footer-info {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            opacity: 0.8;
+        }
+
+        .footer-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            #navbar { padding: 1rem 5%; justify-content: space-between; }
-            .menu-toggle { display: flex; } /* 顯示漢堡選單按鈕 */
-            
-            #navbar ul {
-                display: none; /* 預設隱藏選單 */
-                position: absolute;
-                top: 100%;
-                left: 0;
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .logo {
+                width: 150px;
+                top: 1rem;
+                left: 1rem;
+            }
+
+            .hamburger {
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .nav-menu {
                 width: 100%;
-                background-color: rgba(18, 18, 18, 0.98);
-                flex-direction: column;
-                padding: 2rem;
-                gap: 2rem;
-                border-top: 1px solid #333;
             }
-            #navbar ul.active { display: flex; } /* 點擊按鈕後顯示 */
-            #navbar ul li { margin-left: 0; text-align: center; }
+        }
 
-            #hero h1 { font-size: 2.2rem; }
-            #hero h2 { font-size: 1.1rem; }
-            .vision-content, .highlight-content { flex-direction: column !important; text-align: center; }
-
-            /* 關鍵修正：師資順序調整 */
-            .curriculum-grid { display: flex; flex-direction: column; }
-            .curriculum-card:nth-child(1) { order: 2; } /* 王惟老師變第二 */
-            .curriculum-card:nth-child(2) { order: 3; } /* 黃泱宏老師變第三 */
-            .curriculum-card:nth-child(3) { order: 1; } /* 陳振馨總監變第一 */
-            
-            .curriculum-card img { height: 320px; }
-            .includes-list { grid-template-columns: 1fr; text-align: left; }
-
-            .mobile-fab {
-                display: flex;
-                position: fixed;
-                bottom: 30px;
-                right: 20px;
-                background-color: var(--primary-color);
-                color: #121212;
-                padding: 12px 25px;
-                border-radius: 50px;
-                font-weight: 700;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-                z-index: 999;
-            }
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
+    <!-- Hamburger Menu -->
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
-    <nav id="navbar">
-        <a href="#" class="logo"><img src="logo-horizontal.webp" alt="TPE Logo"></a>
-        
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-        <ul id="nav-list">
-            <li><a href="#vision">核心理念</a></li>
-            <li><a href="#curriculum">師資陣容</a></li>
-            <li><a href="#highlights">計畫亮點</a></li>
-            <li><a href="https://forms.gle/hR6aG4FRiDZFm5UC6" target="_blank" class="btn">立即報名</a></li>
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="#home" onclick="toggleMenu()">首頁</a></li>
+            <li><a href="#manifesto" onclick="toggleMenu()">核心宣言</a></li>
+            <li><a href="#program" onclick="toggleMenu()">培訓內容</a></li>
+            <li><a href="#faculty" onclick="toggleMenu()">師資陣容</a></li>
+            <li><a href="#benefits" onclick="toggleMenu()">職業現場</a></li>
+            <li><a href="#info" onclick="toggleMenu()">關鍵資訊</a></li>
+            <li><a href="#pricing" onclick="toggleMenu()">費用方案</a></li>
+            <li><a href="#apply" onclick="toggleMenu()">立即報名</a></li>
         </ul>
     </nav>
 
-    <section id="hero">
-        <div class="container">
-            <h1>尋找第 41 年的聲音</h1>
-            <h2>TPE Young Artist 2026 ── 青年演奏家培力計畫</h2>
-            <a href="#vision" class="btn">了解計畫</a>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <img src="logo-horizontal.webp" alt="TPE Logo" class="logo">
+        <div class="hero-content">
+            <h1>尋找第41年的聲音</h1>
+            <h2>TPE Young Artist 2026</h2>
+            <p class="hero-subtitle">青年演奏家培力計畫</p>
+            <a href="#apply" class="cta-button">立即報名</a>
         </div>
     </section>
 
-    <section id="vision">
-        <div class="container">
-            <h2 class="section-title">核心理念</h2>
-            <div class="vision-content">
-                <div class="vision-text">
-                    <h3>傳承，不是複製過去，<br>而是創造未來的起點。</h3>
-                    <p>台北打擊樂團走過 40 年，我們尋找有想法、有野心，渴望發出獨特聲音的你。我們不教你成為第二個誰，我們陪伴你，成為第一個你。</p>
-                </div>
-                <div class="vision-image"><img src="image_0.webp" alt="Vision" loading="lazy"></div>
+    <!-- Manifesto -->
+    <section class="manifesto" id="manifesto">
+        <h2 class="section-title">核心宣言</h2>
+        <div class="manifesto-text">
+            <p class="highlight">傳承，不是複製過去，而是創造未來的起點。</p>
+            <p>台北打擊樂團走過40年，從不認為「傳承」只是把技術交給下一代。<br>
+            真正的傳承，是讓每一代演奏者都能從自身出發，找到屬於這個時代的聲音。</p>
+            <p>這個計畫，不是為了培養「下一個誰」，而是陪伴你成為「第一個你」。</p>
+            <p>我們提供的不只是課程，而是一個完整的職業視野：<br>
+            從樂器的物理性格到合奏的化學反應，從排練室的紀律到舞台上的呼吸。</p>
+            <p>10週的時間不長，但足夠讓你理解：<br>
+            打擊樂不只是敲擊，而是一種思考聲音的方式。</p>
+        </div>
+    </section>
+
+    <!-- Program -->
+    <section id="program">
+        <h2 class="section-title">10週培訓內容</h2>
+        <p class="section-subtitle" style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">
+            我們將你視為「準團員」。<br>
+            你將進入TPE的核心排練現場，經歷從個人技巧到團體合奏的完整淬鍊。
+        </p>
+        <div class="program-grid">
+            <div class="program-item">
+                <h3>技巧工坊</h3>
+                <p class="program-time">每週六 19:00-21:00</p>
+                <p class="program-desc">從觸鍵到音色，從節奏到呼吸，拆解每一個樂器的性格。</p>
+                <p class="faculty-bio"><strong>導師：王惟</strong><br>
+                法國國立里昂高等音樂暨舞蹈學院演奏高等碩士<br>
+                TPE演奏家、微光古樂集打擊樂手</p>
+            </div>
+            <div class="program-item">
+                <h3>合奏實驗室</h3>
+                <p class="program-time">每週日 19:00-21:00</p>
+                <p class="program-desc">當不同聲部開始對話，你會理解：合奏不是整齊劃一，而是精準的相互聆聽。</p>
+                <p class="faculty-bio"><strong>導師：黃泱宏</strong><br>
+                德國國立漢堡音樂暨戲劇學院碩士及最高演奏家文憑<br>
+                TPE演奏家、輔仁大學與東吳大學音樂系助理教授</p>
+            </div>
+            <div class="program-item">
+                <h3>藝術總監指導課</h3>
+                <p class="program-time">期初 / 期中 / 期末</p>
+                <p class="program-desc">40年的舞台經驗，濃縮成三次關鍵提點。</p>
+                <p class="faculty-bio"><strong>導師：陳振馨</strong><br>
+                TPE藝術總監、國家交響樂團打擊樂手<br>
+                台灣打擊樂推廣與教學逾四十年</p>
             </div>
         </div>
     </section>
 
-    <section id="curriculum">
-        <div class="container">
-            <h2 class="section-title">師資陣容</h2>
-            <div class="curriculum-grid">
-                <div class="curriculum-card">
-                    <img src="faculty-1.webp" alt="王惟" loading="lazy">
-                    <div class="card-content">
-                        <h3>技巧工坊</h3>
-                        <h4>導師：王惟</h4>
-                        <p>深入打擊樂的物理性與音樂性核心，建立堅不可摧的技術基石，並尋求個人風格的突破點。</p>
-                    </div>
-                </div>
-                <div class="curriculum-card">
-                    <img src="faculty-2.webp" alt="黃泱宏" loading="lazy">
-                    <div class="card-content">
-                        <h3>合奏實驗室</h3>
-                        <h4>導師：黃泱宏</h4>
-                        <p>學習如何在合奏中「呼吸」，在展現自我的同時成就團隊，探索聲音在空間中的化學反應。</p>
-                    </div>
-                </div>
-                <div class="curriculum-card">
-                    <img src="faculty-3.webp" alt="陳振馨" loading="lazy">
-                    <div class="card-content">
-                        <h3>總監指導課</h3>
-                        <h4>導師：陳振馨</h4>
-                        <p>解讀作品的深層意涵，培養身為一位「藝術家」所需的詮釋能力與舞台思考。</p>
-                    </div>
-                </div>
-            </div>
-            <div class="rehearsal-image"><img src="venue-1.webp" alt="Venue" loading="lazy"></div>
-        </div>
+    <!-- Image Section 1 -->
+    <section style="padding: 0; height: 60vh; background: url('image_1.webp') center/cover no-repeat; background-attachment: fixed;">
     </section>
 
-    <section id="highlights">
-        <div class="container">
-            <h2 class="section-title">計畫亮點</h2>
-            <div class="highlight-content">
-                <div class="highlight-text">
-                    <ul>
-                        <li><strong>實戰舞台：</strong> 安排參與社區音樂會演出。</li>
-                        <li><strong>頂尖見習：</strong> 有機會進入台北表演藝術中心「藍盒子」劇場見習年度製作。</li>
-                        <li><strong>職涯導航：</strong> 與 TPE 團員深度交流，獲得第一手職涯建議。</li>
-                    </ul>
-                </div>
-                <div class="highlight-image"><img src="image_1.webp" alt="Highlights" loading="lazy"></div>
+    <!-- Faculty -->
+    <section style="background: #f8f8f8;" id="faculty">
+        <h2 class="section-title">師資陣容</h2>
+        <div class="faculty-grid">
+            <div class="faculty-card">
+                <img src="faculty-3.webp" alt="陳振馨" class="faculty-img">
+                <h3 class="faculty-name">陳振馨</h3>
+                <p class="faculty-title">藝術總監</p>
+                <p class="faculty-bio">TPE創始團員，國家交響樂團打擊樂手，台灣打擊樂推廣與教學逾四十年，對樂團美學有絕對堅持。</p>
+            </div>
+            <div class="faculty-card">
+                <img src="faculty-1.webp" alt="黃泱宏" class="faculty-img">
+                <h3 class="faculty-name">黃泱宏</h3>
+                <p class="faculty-title">合奏實驗室導師</p>
+                <p class="faculty-bio">德國國立漢堡音樂暨戲劇學院碩士及最高演奏家文憑，現任輔仁大學與東吳大學音樂系助理教授。</p>
+            </div>
+            <div class="faculty-card">
+                <img src="faculty-2.webp" alt="王惟" class="faculty-img">
+                <h3 class="faculty-name">王惟</h3>
+                <p class="faculty-title">技巧工坊導師</p>
+                <p class="faculty-bio">法國國立里昂高等音樂暨舞蹈學院演奏高等碩士，專精巴洛克樂、世界音樂及傳統手鼓演奏。</p>
             </div>
         </div>
     </section>
 
-    <section id="key-info">
-        <div class="container">
-            <div class="info-container">
-                <div class="info-details">
-                    <h3>TPE 40週年特別企劃</h3>
-                    <p style="text-align: center; margin-bottom: 2rem;">本計畫集結三位旅歐師資，提供小班制高強度培訓。</p>
-                    
-                    <div class="price-box">
-                        <div class="price-item">
-                            <span>一般報名</span>
-                            <span>NT$ 18,000</span>
-                        </div>
-                        <div class="price-item">
-                            <span>推薦優惠</span>
-                            <span>NT$ 15,000</span>
-                        </div>
-                        <span class="price-desc">(經 TPE 團員或打擊樂專業教師推薦者)</span>
-                    </div>
-
-                    <p><strong>費用包含：</strong></p>
-                    <ul class="includes-list">
-                        <li>10 週專業課程 (共 40 小時)</li>
-                        <li>教材與樂譜</li>
-                        <li>TPE 年度爵士音樂會票券 × 2 張</li>
-                        <li>社區音樂會演出機會</li>
-                        <li>專業場館後台見習機會</li>
-                    </ul>
-                    
-                    <div style="margin-top: 3rem; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 1.5rem;">
-                        <p><strong>培訓期間：</strong> 2026/03/07 - 05/17 (每週六、日)</p>
-                        <p><strong>培訓地點：</strong> 台北打擊樂團排練室</p>
-                        <p><strong>招收對象：</strong> 18-28 歲具備打擊樂演奏能力者</p>
-                    </div>
-                </div>
+    <!-- Benefits -->
+    <section class="benefits" id="benefits">
+        <h2 class="section-title">只有這裡能給你的「職業現場」</h2>
+        <div class="benefits-list">
+            <div class="benefit-item">
+                <h3>實際演出機會</h3>
+                <p>參與TPE社區音樂會演出，與TPE演奏家同台，體驗完整的舞台呈現。<br>
+                表現優異者將獲得實際演出機會。</p>
+            </div>
+            <div class="benefit-item">
+                <h3>專業場館見習機會</h3>
+                <p>TPE年度爵士公演週，學員享「後台見習機會」。<br>
+                從裝台、試音到彩排，全程見習專業樂團的一天。<br>
+                <em>地點：台北表演藝術中心藍盒子劇場</em></p>
             </div>
         </div>
     </section>
 
-    <section id="application">
-        <div class="container">
-            <h2 class="section-title">徵選流程</h2>
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-icon">📝</div>
-                    <h3>Step 1 線上報名</h3>
-                    <p>填寫報名表單並上傳簡歷與影片連結</p>
-                    <span class="step-date">截止：2026/02/15 (日)</span>
-                </div>
-                <div class="step-card">
-                    <div class="step-icon">🥁</div>
-                    <h3>Step 2 現場徵選</h3>
-                    <p>通過初審者參加演奏徵選與面談</p>
-                    <span class="step-date">日期：2026/02/21 - 02/22</span>
-                </div>
-                <div class="step-card">
-                    <div class="step-icon">✉️</div>
-                    <h3>Step 3 錄取通知</h3>
-                    <p>以電子郵件個別通知最終名單</p>
-                    <span class="step-date">日期：2026/02/25 (三) 前</span>
-                </div>
+    <!-- Image Section 2 -->
+    <section style="padding: 0; height: 60vh; background: url('venue-1.webp') center/cover no-repeat; background-attachment: fixed;">
+    </section>
+
+    <!-- Info -->
+    <section id="info" style="background: linear-gradient(rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.97)), url('hero-shot-2.webp'); background-size: cover; background-position: center;">
+        <h2 class="section-title">關鍵資訊</h2>
+        <div class="info-grid">
+            <div class="info-item">
+                <h3>培訓期間</h3>
+                <p>2026/03/07(五) - 05/17(六)<br>
+                共10週<br>
+                <em>(4/4清明連假停課)</em></p>
             </div>
-            <a href="https://forms.gle/hR6aG4FRiDZFm5UC6" target="_blank" class="btn" style="padding: 18px 60px; font-size: 1.2rem;">立即前往報名表單</a>
+            <div class="info-item">
+                <h3>上課時段</h3>
+                <p>每週六 19:00-21:00 技巧工坊<br>
+                每週日 19:00-21:00 合奏實驗室</p>
+            </div>
+            <div class="info-item">
+                <h3>培訓地點</h3>
+                <p>台北打擊樂團排練室<br>
+                台北市信義區永吉路201號B1</p>
+            </div>
+            <div class="info-item">
+                <h3>招募對象</h3>
+                <p>高中/大學音樂科系學生，或具備同等演奏能力之打擊樂愛好者</p>
+            </div>
         </div>
     </section>
 
-    <footer id="footer">
-        <div class="container">
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <h2 class="section-title">費用與徵選</h2>
+        <p class="section-subtitle" style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">
+            本計畫為TPE 40週年特別企劃，集結三位旅歐師資，提供小班制高強度培訓。
+        </p>
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <p class="pricing-label">一般報名</p>
+                <p class="pricing-amount">NT$ 18,000</p>
+            </div>
+            <div class="pricing-card featured">
+                <p class="pricing-label">推薦優惠</p>
+                <p class="pricing-amount">NT$ 15,000</p>
+                <p class="pricing-note">經TPE團員或打擊樂專業教師推薦者</p>
+            </div>
+        </div>
+        <div style="max-width: 600px; margin: 3rem auto; padding: 2rem; background: white;">
+            <h3 style="font-size: 1.2rem; font-weight: 400; margin-bottom: 1rem;">費用包含</h3>
+            <ul class="pricing-includes">
+                <li>・10週專業課程（共40小時）</li>
+                <li>・教材與樂譜</li>
+                <li>・TPE年度爵士音樂會票券 × 2張（可與親友同行）</li>
+                <li>・社區音樂會演出機會（表現優異者）</li>
+                <li>・專業場館後台見習機會</li>
+            </ul>
+            <p style="margin-top: 1.5rem; font-size: 0.95rem; color: #666;">
+                採小班制教學，確保每位學員都能獲得充分指導。
+            </p>
+        </div>
+    </section>
+
+    <!-- Application -->
+    <section class="application" id="apply">
+        <h2 class="section-title">如何加入</h2>
+        <p class="section-subtitle" style="text-align: center; max-width: 800px; margin: 0 auto 3rem; color: white;">
+            本計畫採徵選制，我們重視態度勝於程度。
+        </p>
+        <div class="application-steps">
+            <div class="step">
+                <h3>Step 1｜線上報名</h3>
+                <p>填寫申請表單（含基本資料、學習經歷）</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;">申請推薦優惠者，請於表單中填寫推薦教師姓名與聯絡方式</p>
+            </div>
+            <div class="step">
+                <h3>Step 2｜現場徵選</h3>
+                <p>日期：2026/03/01(日) 於TPE排練室</p>
+                <ul>
+                    <li>指定曲：琴類重奏片段、鼓類重奏片段（報名後下載譜例）</li>
+                    <li>自選曲：3分鐘內個人獨奏（樂器不拘）</li>
+                    <li>面試：3分鐘，讓我們聽聽你對聲音的想法</li>
+                </ul>
+            </div>
+            <div class="step">
+                <h3>Step 3｜錄取通知與繳費</h3>
+                <p>徵選結果將於3日內email通知<br>
+                錄取者請於通知後7日內完成繳費</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <h2>名額有限，僅收錄最具潛力的聲音</h2>
+        <a href="https://forms.gle/hR6aG4FRiDZFm5UC6" target="_blank" class="cta-button">立即報名</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
             <img src="logo-horizontal.webp" alt="TPE Logo" class="footer-logo">
-            <p class="copyright">© 2026 Taipei Percussion Group. All Rights Reserved.</p>
+            <div class="footer-info">
+                <p><strong>台北打擊樂團</strong></p>
+                <p>2025 Taiwan Top演藝團隊</p>
+                <p style="margin-top: 1.5rem;">
+                    聯絡電話：(02) 2765-6145<br>
+                    Email: tpperc@gmail.com<br>
+                    地址：台北市信義區永吉路201號B1
+                </p>
+            </div>
         </div>
     </footer>
 
-    <a href="https://forms.gle/hR6aG4FRiDZFm5UC6" target="_blank" class="mobile-fab">立即報名</a>
-
     <script>
-        const menuToggle = document.getElementById('mobile-menu');
-        const navList = document.getElementById('nav-list');
+        function toggleMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        }
 
-        menuToggle.addEventListener('click', () => {
-            navList.classList.toggle('active');
-        });
-
-        // 點擊選單連結後自動收起選單
-        navList.addEventListener('click', () => {
-            navList.classList.remove('active');
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
     </script>
-
 </body>
 </html>
