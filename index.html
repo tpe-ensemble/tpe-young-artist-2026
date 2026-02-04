@@ -268,14 +268,13 @@
 
 /* 個別調整照片位置 */
 .faculty-card:nth-child(1) .faculty-img {
-    object-position: center 0%;  /* 陳振馨老師 - 從頂部開始 */
+    object-position: center 0%; 
 }
 
 .faculty-card:nth-child(2) .faculty-img,
 .faculty-card:nth-child(3) .faculty-img {
-    object-position: center 35%;  /* 黃泱宏、王惟 - 35% */
+    object-position: center 45%;  
 }
-        }
 
         .faculty-name {
             font-size: 1.3rem;
@@ -494,9 +493,22 @@
             margin: 0 auto;
         }
 
+        .footer-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
         .footer-logo {
             width: 150px;
-            margin-bottom: 2rem;
+            height: auto;
+        }
+
+        .footer-logo-taiwantop {
+            width: 180px;  /* Taiwan Top logo 可能需要調整尺寸 */
         }
 
         .footer-info {
@@ -614,7 +626,7 @@
                 TPE演奏家、微光古樂集打擊樂手</p>
             </div>
             <div class="program-item">
-                <h3>合奏實驗室</h3>
+                <h3>合奏實戰</h3>
                 <p class="program-time">每週日 19:00-21:00</p>
                 <p class="program-desc">當不同聲部開始對話，你會理解：合奏不是整齊劃一，而是精準的相互聆聽。</p>
                 <p class="faculty-bio"><strong>導師：黃泱宏</strong><br>
@@ -647,16 +659,16 @@
                 <p class="faculty-bio">TPE創始團員，國家交響樂團打擊樂手，台灣打擊樂推廣與教學逾四十年，對樂團美學有絕對堅持。</p>
             </div>
             <div class="faculty-card">
-                <img src="faculty-1.webp" alt="黃泱宏" class="faculty-img">
+                <img src="faculty-2.webp" alt="黃泱宏" class="faculty-img">
                 <h3 class="faculty-name">黃泱宏</h3>
-                <p class="faculty-title">合奏實驗室導師</p>
+                <p class="faculty-title">合奏實戰導師</p>
                 <p class="faculty-bio">德國國立漢堡音樂暨戲劇學院碩士及最高演奏家文憑，現任輔仁大學與東吳大學音樂系助理教授。</p>
             </div>
             <div class="faculty-card">
-                <img src="faculty-2.webp" alt="王惟" class="faculty-img">
+                <img src="faculty-1.webp" alt="王惟" class="faculty-img">
                 <h3 class="faculty-name">王惟</h3>
                 <p class="faculty-title">技巧工坊導師</p>
-                <p class="faculty-bio">法國國立里昂高等音樂暨舞蹈學院演奏高等碩士，專精巴洛克樂、世界音樂及傳統手鼓演奏。</p>
+                <p class="faculty-bio">法國國立里昂高等音樂暨舞蹈學院演奏高等碩士，專精樂團演奏、巴洛克樂及傳統手鼓演奏。</p>
             </div>
         </div>
     </section>
@@ -689,14 +701,14 @@
         <div class="info-grid">
             <div class="info-item">
                 <h3>培訓期間</h3>
-                <p>2026/03/07(五) - 05/17(六)<br>
+                <p>2026/03/07(六) - 05/17(日)<br>
                 共10週<br>
                 <em>(4/4清明連假停課)</em></p>
             </div>
             <div class="info-item">
                 <h3>上課時段</h3>
                 <p>每週六 19:00-21:00 技巧工坊<br>
-                每週日 19:00-21:00 合奏實驗室</p>
+                每週日 19:00-21:00 合奏實戰</p>
             </div>
             <div class="info-item">
                 <h3>培訓地點</h3>
@@ -733,7 +745,7 @@
                 <li>・10週專業課程（共40小時）</li>
                 <li>・教材與樂譜</li>
                 <li>・TPE年度爵士音樂會票券 × 2張（可與親友同行）</li>
-                <li>・社區音樂會演出機會（表現優異者）</li>
+                <li>・社區音樂會演出機會</li>
                 <li>・專業場館後台見習機會</li>
             </ul>
             <p style="margin-top: 1.5rem; font-size: 0.95rem; color: #666;">
@@ -780,7 +792,10 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <img src="logo-horizontal.webp" alt="TPE Logo" class="footer-logo">
+            <div class="footer-logos">
+                <img src="logo-horizontal.webp" alt="TPE Logo" class="footer-logo">
+                <img src="taiwan-top-logo.webp" alt="Taiwan Top" class="footer-logo footer-logo-taiwantop">
+            </div>
             <div class="footer-info">
                 <p><strong>台北打擊樂團</strong></p>
                 <p>2025 Taiwan Top演藝團隊</p>
